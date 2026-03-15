@@ -20,7 +20,7 @@ import java.util.List;
   @version 1.0.0
   @since 24.04.2025 - 22.25
 */
-
+///  check CI pipeline with PR
 
 @RequiredArgsConstructor
 @Service
