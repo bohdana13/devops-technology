@@ -3,12 +3,12 @@ kind: ServiceMonitor
 metadata:
   name: devops-app-monitor
   labels:
-    release: prometheus # ВАЖЛИВО: за цим лейблом Prometheus Operator шукає цілі
+    release: prometheus
 spec:
   selector:
     matchLabels:
-      app: devops-app # Шукає Service з таким лейблом
+      app: devops-app
   endpoints:
-    - port: http # Назва порту з вашого Service
-      path: /actuator/health # Оскільки у вас Spring Boot, метрики поки доступні тут
+    - port: http
+      path: /actuator/health
       interval: 15s
