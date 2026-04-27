@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: devops-app-monitor
+  labels:
+    release: prometheus # ВАЖЛИВО: за цим лейблом Prometheus Operator шукає цілі
+spec:
+  selector:
+    matchLabels:
+      app: devops-app # Шукає Service з таким лейблом
+  endpoints:
+    - port: http # Назва порту з вашого Service
+      path: /actuator/health # Оскільки у вас Spring Boot, метрики поки доступні тут
+      interval: 15s
